@@ -163,11 +163,22 @@ $('#Calculation').on('click', function() {
     }
     $('#answer').val(ans);
     //初始化
-    /*data = [];
+    data = [];
     method = [];
     p = '';
     q = '';
     i = 0;
-    j = 0;*/
+    j = 0;
+    $('#number').val(0);
+});
+
+
+$('#ruin').on('click', function() {
+    data = [];
+    method = [];
+    p = '';
+    q = '';
+    i = 0;
+    j = 0;
     $('#number').val(0);
 });
