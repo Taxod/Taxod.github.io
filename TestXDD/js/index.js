@@ -211,27 +211,27 @@ $('#Calculation').on('click', function() {
     for (var k = 0; k < x; k++) {
         if (method[k] == 1) {
             ans += data[k + 1];
-            console.log(ans);
+            //console.log(ans);
         } else if (method[k] == 2) {
             ans -= data[k + 1];
-            console.log(ans);
+            //console.log(ans);
         } else if (method[k] == 3) {
             //ans = ans + data[k + 1];
-            console.log('xddd');
+            //console.log('xddd');
             continue;
         } else if (method[k] == 4) {
             //ans = ans + data[k + 1];
-            console.log('xddd');
+            //console.log('xddd');
             continue;
         }
     }
     $('#answer').val(ans);
     //初始化
-    /*data = [];
+    data = [];
     method = [];
     p = '';
     q = '';
     i = 0;
-    j = 0;*/
+    j = 0;
     $('#number').val(0);
 });
