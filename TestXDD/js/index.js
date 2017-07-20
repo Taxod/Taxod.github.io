@@ -119,15 +119,13 @@ $('#divide').on('click', function() {
 });
 
 
-//剩下p的部分需要處理
-/*$('#sqrt').on('click', function() {
-    data[i] = Number(Math.sqrt(q));
-    p = p.replace(/q/i, "")
+$('#sqrt').on('click', function() {
+    var s = Number(Math.sqrt(q));
+    p = p.slice(0, p.lastIndexOf(q));
     p = p + '√' + q;
-    i = i + 1;
-    q = '';
+    q = s;
     $('#number').val(p);
-});*/
+});
 
 $('#factorial').on('click', function() {
     var s = 1;
@@ -227,11 +225,11 @@ $('#Calculation').on('click', function() {
     }
     $('#answer').val(ans);
     //初始化
-    data = [];
+    /*data = [];
     method = [];
     p = '';
     q = '';
     i = 0;
-    j = 0;
+    j = 0;*/
     $('#number').val(0);
 });
