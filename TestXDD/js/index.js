@@ -144,7 +144,17 @@ $('#factorial').on('click', function() {
 
 
 
+$('#ruin').on('click', function() {
+    data = [];
+    method = [];
+    p = '';
+    q = '';
+    i = 0;
+    j = 0;
+    $('#number').val(0);
+});
 
+/*
 $('#Calculation').on('click', function() {
     data[i] = Number(q);
     var ans = 0;
@@ -170,15 +180,58 @@ $('#Calculation').on('click', function() {
     i = 0;
     j = 0;
     $('#number').val(0);
-});
+});*/
 
+$('#Calculation').on('click', function() {
+    data[i] = Number(q);
+    var ans = 0;
+    var x = data.length;
+    for (var k = 0; k < x; k++) {
+        if (method[k] == 3) {
+            data[k] = data[k] * data[k + 1];
+            data.splice(k + 1, 1);
+            method.splice(k, 1);
+            k -= 1;
+            /*data[k + 1] = data[k];
+            console.log(data);*/
+        } else if (method[k] == 4) {
+            data[k] = data[k] / data[k + 1];
+            data.splice(k + 1, 1);
+            method.splice(k, 1);
+            k -= 1;
+            /*data[k + 1] = data[k];
+            console.log(data);*/
+            //data[k + 1] = 0;
+        } else {
+            continue;
+        }
+    }
+    ans = data[0];
 
-$('#ruin').on('click', function() {
-    data = [];
+    for (var k = 0; k < x; k++) {
+        if (method[k] == 1) {
+            ans += data[k + 1];
+            console.log(ans);
+        } else if (method[k] == 2) {
+            ans -= data[k + 1];
+            console.log(ans);
+        } else if (method[k] == 3) {
+            //ans = ans + data[k + 1];
+            console.log('xddd');
+            continue;
+        } else if (method[k] == 4) {
+            //ans = ans + data[k + 1];
+            console.log('xddd');
+            continue;
+        }
+    }
+    $('#answer').val(ans);
+    //初始化
+    /*data = [];
     method = [];
     p = '';
     q = '';
     i = 0;
-    j = 0;
+    j = 0;*/
     $('#number').val(0);
 });
