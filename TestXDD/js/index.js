@@ -10,7 +10,7 @@ var q = '';
 var i = 0;
 var j = 0;
 //避免重複運算子
-var flag = 1;
+var flag = 2;
 
 
 $('#one').on('click', function() {
@@ -106,7 +106,7 @@ $('#plus').on('click', function() {
 });
 
 $('#minus').on('click', function() {
-    if (flag == 0) {
+    if (flag == 0 || flag == 2) {
         data[i] = Number(q);
         i = i + 1;
         method[j] = 2;
@@ -184,7 +184,7 @@ $('#ruin').on('click', function() {
     q = '';
     i = 0;
     j = 0;
-    flag = 1;
+    flag = 2;
     $('#number').val(0);
 });
 
@@ -239,7 +239,7 @@ $('#Calculation').on('click', function() {
     q = '';
     i = 0;
     j = 0;
-    flag = 1;
+    flag = 2;
     $('#number').val(0);
 });
 
