@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>計算BMI</title>
+    <title>Document</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -13,45 +13,79 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 
+
 <body>
 
     <div class="container">
         <div class="jumbotron">
-            <h1>計算BMI</h1>
+            <h1>小計算機</h1>
         </div>
 
         <div class="form-group row">
-            <label for="example-number-input" class="col-2 col-form-label">身高 (公分)</label>
+            <button type="button" class="btn btn-outline-primary " id="ruin" style="width:15%;">歸零</button>
+            <!--<label for="example-number-input" class="col-2 col-form-label"></label>-->
             <div class="col-10">
-                <input class="form-control" type="number" value="185" id="height">
+                <input class="form-control" value="0" id="number">
             </div>
         </div>
-        <div class="form-group row">
-            <label for="example-number-input" class="col-2 col-form-label">體重 (公斤)</label>
-            <div class="col-10">
-                <input class="form-control" type="number" value="85" id="weight">
+        <div class="form-group row ">
+
+            <button type="button " class="btn btn-primary btn-block" id="Calculation" style="width:15%;">=</button>
+            <!--<label for="example-number-input " class="col-2 col-form-label ">=</label>-->
+            <div class="col-10 ">
+                <input class="form-control " type="number " id="answer">
             </div>
+        </div>
+        <div align="center">
+            <button type="button" class="btn btn-outline-primary " id="one" style="width:15%; height:50px; font-size:20px;">1</button>
+            <button type="button" class="btn btn-outline-primary " id="two" style="width:15%; height:50px; font-size:20px;">2</button>
+            <button type="button" class="btn btn-outline-primary " id="three" style="width:15%; height:50px; font-size:20px;">3</button>
+            <button type="button" class="btn btn-outline-secondary " id="plus" style="width:15%; height:50px; font-size:20px;">+</button>
+        </div>
+        <div align="center">
+            <button type="button " class="btn btn-outline-primary " id="four" style="width:15%; height:50px; font-size:20px;">4</button>
+            <button type="button " class="btn btn-outline-primary " id="five" style="width:15%; height:50px; font-size:20px;">5</button>
+            <button type="button " class="btn btn-outline-primary " id="six" style="width:15%; height:50px; font-size:20px;">6</button>
+            <button type="button " class="btn btn-outline-secondary " id="minus" style="width:15%; height:50px; font-size:20px;">-</button>
+        </div>
+        <div align="center">
+            <button type="button " class="btn btn-outline-primary " id="seven" style="width:15%; height:50px; font-size:20px;">7</button>
+            <button type="button " class="btn btn-outline-primary " id="eight" style="width:15%; height:50px; font-size:20px;">8</button>
+            <button type="button " class="btn btn-outline-primary " id="nine" style="width:15%; height:50px; font-size:20px;">9</button>
+            <button type="button " class="btn btn-outline-secondary " id="times" style="width:15%; height:50px; font-size:20px;">×</button>
+        </div>
+        <div align="center">
+            <button type="button " class="btn btn-outline-primary " id="zero" style="width:15%; height:50px; font-size:20px;">0</button>
+            <button type="button " class="btn btn-outline-info " id="factorial" style="width:15%; height:50px; font-size:20px;">!</button>
+            <button type="button " class="btn btn-outline-info " id="sqrt" style="width:15%; height:50px; font-size:20px;">√</button>
+            <button type="button " class="btn btn-outline-secondary " id="divide" style="width:15%; height:50px; font-size:20px;">÷</button>
         </div>
 
-        <button type="button" class="btn btn-primary">計算</button>
 
-        <div class="form-group row">
-            <label for="example-number-input" class="col-2 col-form-label">計算結果</label>
-            <div class="col-10">
-                <input class="form-control" type="number" id="result">
-            </div>
-        </div>
+
+
+    </div>
+
+    <div>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>.</p>
+        <p>*如需要使用根號，先輸入數字再按根號</p>
     </div>
 
 
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js " integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js " integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js " integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn " crossorigin="anonymous "></script>
 
     <!-- 引入我們自己寫的 JavaScript -->
-    <script src="./js/index.js"></script>
+    <script src="./js/index.js "></script>
+
 </body>
 
 </html>
