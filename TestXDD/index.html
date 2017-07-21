@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>小計算機</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group row">
-            <button type="button" class="btn btn-outline-primary " id="ruin" style="width:15%;">歸零</button>
+            <button type="button" class="btn btn-outline-primary " id="ruin" style="width:15%; ">清除</button>
             <!--<label for="example-number-input" class="col-2 col-form-label"></label>-->
             <div class="col-10">
                 <input class="form-control" value="0" id="number">
@@ -66,13 +66,22 @@
 
     </div>
 
-    <div>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>.</p>
-        <p>*如需要使用根號，先輸入數字再按根號</p>
+    <div id="font_">
+        <p style="color:white; font-size:5px;">.</p>
+        <p style="color:white; font-size:5px;">.</p>
+        <p id="p" style="font-family:Microsoft JhengHei;">
+            *如需要使用根號，先輸入數字再按根號
+        </p>
+
+        <p id="p" style="font-family:Microsoft JhengHei;">
+            *支援連加減乘除、四則運算(EX: 8 × 3 + 6 × 4 = 48)
+        </p>
+
+        <p id="p" style="font-family:Microsoft JhengHei;">
+            *不支援鍵盤輸入
+        </p>
+
+
     </div>
 
 

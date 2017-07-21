@@ -9,23 +9,29 @@ var q = '';
 //變換
 var i = 0;
 var j = 0;
+//避免重複運算子
+var flag = 1;
+
 
 $('#one').on('click', function() {
     var n = '1';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 $('#two').on('click', function() {
     var n = '2';
     p = p + n;
     q = q + n;
+    flag = 0;
     $('#number').val(p);
 });
 $('#three').on('click', function() {
     var n = '3';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 
@@ -33,6 +39,7 @@ $('#four').on('click', function() {
     var n = '4';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 
@@ -40,6 +47,7 @@ $('#five').on('click', function() {
     var n = '5';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 
@@ -47,6 +55,7 @@ $('#six').on('click', function() {
     var n = '6';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 
@@ -54,6 +63,7 @@ $('#seven').on('click', function() {
     var n = '7';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 
@@ -61,6 +71,7 @@ $('#eight').on('click', function() {
     var n = '8';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 
@@ -68,6 +79,7 @@ $('#nine').on('click', function() {
     var n = '9';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 
@@ -75,69 +87,92 @@ $('#zero').on('click', function() {
     var n = '0';
     q = q + n;
     p = p + n;
+    flag = 0;
     $('#number').val(p);
 });
 
 $('#plus').on('click', function() {
-    data[i] = Number(q);
-    i = i + 1;
-    method[j] = 1;
-    j += 1;
-    q = '';
-    p = p + '+';
-    $('#number').val(p);
+    if (flag == 0) {
+        data[i] = Number(q);
+        i = i + 1;
+        method[j] = 1;
+        j += 1;
+        q = '';
+        p = p + '+';
+        flag = 1;
+        $('#number').val(p);
+    }
+
 });
 
 $('#minus').on('click', function() {
-    data[i] = Number(q);
-    i = i + 1;
-    method[j] = 2;
-    j += 1;
-    q = '';
-    p = p + '-';
-    $('#number').val(p);
+    if (flag == 0) {
+        data[i] = Number(q);
+        i = i + 1;
+        method[j] = 2;
+        j += 1;
+        q = '';
+        p = p + '-';
+        flag = 1;
+        $('#number').val(p);
+    }
+
 });
 
 $('#times').on('click', function() {
-    data[i] = Number(q);
-    i = i + 1;
-    method[j] = 3;
-    j += 1;
-    q = '';
-    p = p + '×';
-    $('#number').val(p);
+    if (flag == 0) {
+        data[i] = Number(q);
+        i = i + 1;
+        method[j] = 3;
+        j += 1;
+        q = '';
+        p = p + '×';
+        flag = 1;
+        $('#number').val(p);
+    }
+
 });
 
 $('#divide').on('click', function() {
-    data[i] = Number(q);
-    i = i + 1;
-    method[j] = 4;
-    j += 1;
-    q = '';
-    p = p + '÷';
-    $('#number').val(p);
+    if (flag == 0) {
+        data[i] = Number(q);
+        i = i + 1;
+        method[j] = 4;
+        j += 1;
+        q = '';
+        p = p + '÷';
+        flag = 1;
+        $('#number').val(p);
+    }
+
 });
 
 
 $('#sqrt').on('click', function() {
-    var s = Number(Math.sqrt(q));
-    p = p.slice(0, p.lastIndexOf(q));
-    p = p + '√' + q;
-    q = s;
-    $('#number').val(p);
+    if (flag == 0) {
+        var s = Number(Math.sqrt(q));
+        p = p.slice(0, p.lastIndexOf(q));
+        p = p + '√' + q;
+        q = s;
+        $('#number').val(p);
+    }
+
 });
 
 $('#factorial').on('click', function() {
-    var s = 1;
-    for (var pm = 1; pm <= Number(q); pm++) {
-        s = s * pm
+    if (flag == 0) {
+        var s = 1;
+        for (var pm = 1; pm <= Number(q); pm++) {
+            s = s * pm
+        }
+        //data[i] = s;
+        //i = i + 1;
+        p = p + '!';
+        q = s;
+        s = 1;
+        $('#number').val(p);
     }
-    //data[i] = s;
-    //i = i + 1;
-    p = p + '!';
-    q = s;
-    s = 1;
-    $('#number').val(p);
+
 });
 
 
@@ -149,36 +184,9 @@ $('#ruin').on('click', function() {
     q = '';
     i = 0;
     j = 0;
+    flag = 1;
     $('#number').val(0);
 });
-
-/*
-$('#Calculation').on('click', function() {
-    data[i] = Number(q);
-    var ans = 0;
-    ans = data[0];
-    var x = data.length;
-    for (var k = 0; k < x; k++) {
-        if (method[k] == 1) {
-            ans += data[k + 1];
-        } else if (method[k] == 2) {
-            ans -= data[k + 1];
-        } else if (method[k] == 3) {
-            ans = ans * data[k + 1];
-        } else if (method[k] == 4) {
-            ans = ans / data[k + 1];
-        }
-    }
-    $('#answer').val(ans);
-    //初始化
-    data = [];
-    method = [];
-    p = '';
-    q = '';
-    i = 0;
-    j = 0;
-    $('#number').val(0);
-});*/
 
 $('#Calculation').on('click', function() {
     data[i] = Number(q);
@@ -225,11 +233,41 @@ $('#Calculation').on('click', function() {
     }
     $('#answer').val(ans);
     //初始化
-    /*data = [];
+    data = [];
     method = [];
     p = '';
     q = '';
     i = 0;
-    j = 0;*/
+    j = 0;
+    flag = 1;
     $('#number').val(0);
 });
+
+
+/*
+$('#Calculation').on('click', function() {
+    data[i] = Number(q);
+    var ans = 0;
+    ans = data[0];
+    var x = data.length;
+    for (var k = 0; k < x; k++) {
+        if (method[k] == 1) {
+            ans += data[k + 1];
+        } else if (method[k] == 2) {
+            ans -= data[k + 1];
+        } else if (method[k] == 3) {
+            ans = ans * data[k + 1];
+        } else if (method[k] == 4) {
+            ans = ans / data[k + 1];
+        }
+    }
+    $('#answer').val(ans);
+    //初始化
+    data = [];
+    method = [];
+    p = '';
+    q = '';
+    i = 0;
+    j = 0;
+    $('#number').val(0);
+});*/
