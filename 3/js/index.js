@@ -323,15 +323,23 @@ var randomanswer = function() {
 
 
 
-//還沒做避免多次start
+//避免多次start
+var void_restrat = 0;
 $('#start').on('click', function() {
-    score = 0;
-    randomanswer();
-    randomcolor();
-    changeColor();
-    printbox();
+    if (void_restrat == 0) {
+        score = 0;
+        randomanswer();
+        randomcolor();
+        changeColor();
+        printbox();
+        void_restrat = 1;
+    } else {
+        alert('Already Start!!!')
+    }
+
 })
 
+document.getElementById("text").innerHTML = 'score' + score;
 
 var check = function() {
     if (reply == answer) {
@@ -343,8 +351,10 @@ var check = function() {
         randomcolor();
         changeColor();
         printbox();
+        document.getElementById("text").innerHTML = 'score' + score;
     } else {
         console.log(0);
+        void_restrat = 0;
         for (var j = 0; j < data_row.length; j++) {
             $(data_row[j]).empty();
         }
