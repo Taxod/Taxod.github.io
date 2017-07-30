@@ -280,7 +280,7 @@ var printhintjpg = function() {
     for (var j = 0; j < 3; j++) {
         hintid = 'hint' + j;
         $jpg = $('<img>').attr('src', './picture/hint1.jpg').attr('id', hintid).attr('style', 'width:50px ; height:50px');
-        $('.col').append($jpg);
+        $('.hint').append($jpg);
 
     }
 }
