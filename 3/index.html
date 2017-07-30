@@ -14,19 +14,9 @@
     <link rel="stylesheet" href="./css/index.css">
 
 
-
-    <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="cover.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -43,42 +33,50 @@
 <body>
 
 
-
     <div class="site-wrapper">
 
         <div class="site-wrapper-inner">
 
             <div class="cover-container">
 
+
                 <div class="masthead clearfix">
                     <div class="inner">
-                        <h3 class="masthead-brand">Cover</h3>
+                        <h3 class="masthead-brand"></h3>
                         <nav>
                             <ul class="nav masthead-nav">
                                 <li class="active"><a href="#">Home</a></li>
-                                <li><a href="#">Features</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <!-- <li><a href="#">Features</a></li>
+                                <li><a href="#">Contact</a></li> -->
                             </ul>
                         </nav>
                     </div>
                 </div>
 
+
+
                 <div class="inner cover">
                     <h1 class="cover-heading">Cover your page.</h1>
                     <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
                     <p class="lead">
-                        <a href="#"><button id="start" type="button" class="btn btn-primary" style="background-color:rgb(20,20,150)">start</button></a>
+                        <a id="start" href="#hint" class="btn btn-primary" style="background-color:rgb(20,20,150)">
+                            <!-- <button id="start" type="button" class="btn btn-primary" style="background-color:rgb(20,20,150)">start</button> -->
+                            start
+                        </a>
 
                         <!--<a href="#" class="btn btn-lg btn-default" id="movetest">Learn more</a>-->
                     </p>
                 </div>
 
-                <div class="mastfoot">
-                    <div class="inner">
-                        <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+
+
+                <div class="footer">
+                    <div class="mastfoot">
+                        <div class="inner">
+                            <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+                        </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
@@ -87,87 +85,79 @@
 
 
 
+    <div class="game">
+        <div class="container">
+            <div id="pos1"><button id="hint" type="button" class="btn btn-primary" style="background-color:rgb(50,100,150);position: absolute;left: 80px;">hint</button>
+            </div>
 
+            <div class="row">
 
+                <div class="col" align="left">
+                    <!--<button id="start" type="button" class="btn btn-primary" style="background-color:rgb(20,20,150)">start</button>-->
+                    <span id="text"></span>
+                </div>
+            </div>
 
+            <div align="center" id="data">
+                <div class="row-1"></div>
+                <div class="row-2"></div>
+                <div class="row-3"></div>
+                <div class="row-4"></div>
+                <div class="row-5"></div>
+                <div class="row-6"></div>
+                <div class="row-7"></div>
+                <div class="row-8"></div>
 
+            </div>
 
-
-
-
-    <div class="container">
-
-
-        <!--<div class="jumbotron">
-            <h1>jumbotron</h1>
-        </div>-->
-        <div class="row">
-            <div id="pos1"></div>
-
-            <div class="col" align="left">
+            <div>
                 <p>.</p>
-                <button id="hint" type="button" class="btn btn-primary" style="background-color:rgb(50,100,150);position: absolute;left: 80px;">hint</button>
-                <!--<button id="start" type="button" class="btn btn-primary" style="background-color:rgb(20,20,150)">start</button>-->
-                <span id="text"></span>
+                <p>.</p>
+                <p>.</p>
+
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
             </div>
         </div>
-
-        <div align="center" id="data">
-            <div class="row-1"></div>
-            <div class="row-2"></div>
-            <div class="row-3"></div>
-            <div class="row-4"></div>
-            <div class="row-5"></div>
-            <div class="row-6"></div>
-            <div class="row-7"></div>
-            <div class="row-8"></div>
-
-        </div>
-
-        <div>
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-
-            <p>.</p>
-            <p>.</p>
-            <p>.</p>
-        </div>
     </div>
+
+
+
+
+
+
+
+
+
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="http://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="./js/scolls.js"></script>
 
     <!-- 引入我們自己寫的 JavaScript -->
     <script src="./js/index.js"></script>
 
-
-
-
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
         window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
     </script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+
 
 
 

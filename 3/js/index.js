@@ -261,11 +261,11 @@ var printbox = function() {
         for (var index = 0; index < 8; index++) {
             var $button;
             if (num == answer) {
-                $button = $('<button>').attr('id', data[num]).attr('style', 'width:70px; height:70px; font-size:20px; padding: 50px ;background-color:rgb' + rgb2 + ';');
+                $button = $('<button>').attr('id', data[num]).attr('style', 'width:70px; height:70px; font-size:20px;border-width:1px; padding: 50px ;background-color:rgb' + rgb2 + ';');
                 $col = $(data_row[j]).append($button);
                 $('#data').append($col);
             } else {
-                $button = $('<button>').attr('id', data[num]).attr('style', 'width:70px; height:70px; font-size:20px; padding: 50px ;background-color:rgb' + rgb1 + ';');
+                $button = $('<button>').attr('id', data[num]).attr('style', 'width:70px; height:70px; font-size:20px;border-width:1px; padding: 50px ;background-color:rgb' + rgb1 + ';');
                 $col = $(data_row[j]).append($button);
                 $('#data').append($col);
             }
@@ -336,21 +336,22 @@ var randomanswer = function() {
     answer = Math.floor(Math.random() * 40); //0~39
 }
 
-
-//按start後滑動至id = data
-$("#start").on("click", function(e) {
-    $('html, body').animate({
-        scrollTop: $("#pos1").offset().top // 只需修改此處
-    }, 750); // 750是滑動的時間，單位為毫秒
-    e.preventDefault();
-});
-
+// $(document).ready(function() {
+//     // 按start後滑動至id = data
+//     $("#start").on("click", function(e) {
+//         $('html, body').animate({
+//             scrollTop: $("#hint").offset().top // 只需修改此處
+//         }, 750); // 750是滑動的時間，單位為毫秒
+//         e.preventDefault();
+//     });
+// });
 
 //避免多次start
 var void_restrat = 0;
 $('#start').on('click', function() {
     if (void_restrat == 0) {
         score = 0;
+        document.getElementById("text").innerHTML = 'score : ' + score;
         randomanswer();
         randomcolor();
         changeColor();
@@ -395,12 +396,12 @@ var check = function() {
 var hint_used = 0;
 $('#hint').on('click', function() {
     var answer_name = '#' + answer;
-    $(answer_name).attr('style', 'width:70px; height:70px; font-size:20px;border-width:medium; border-style:dashed; padding: 50px ;background-color:rgb' + rgb2 + ';');
+    $(answer_name).attr('style', 'width:70px; height:70px; font-size:20px;border-width:medium; border-style:dashed; border-width:1px; padding: 50px ;background-color:rgb' + rgb2 + ';');
     //console.log(answer_name + '!!!!!!');
     if (hint_used < 3) {
         var hintid;
         hintid = '#hint' + hint_used;
-        $(hintid).attr('src', './picture/hint2.jpg').attr('style', 'width:50px ; height:50px');
+        $(hintid).attr('src', './picture/hint2.jpg').attr('style', 'width:50px ; height:50px;');
         hint_used += 1;
     } else {
         alert('提示用完了  HAHA 找不到齁')

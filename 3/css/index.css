@@ -1,7 +1,15 @@
-#hint {}
+#hint {
+    background-color: rgb(50, 100, 150);
+    position: absolute;
+    left: 80px;
+}
 
 #text {
     position: absolute;
     right: 35px;
     font-size: 30px;
+}
+
+#pos1 {
+    margin-top: 50px
 }
