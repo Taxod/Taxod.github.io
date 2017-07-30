@@ -56,3 +56,9 @@ button.item-shadow {
 div.item {
     display: inline-block;
 }
+
+#restart {
+    background-color: rgb(50, 100, 150);
+    position: absolute;
+    right: 70px;
+}

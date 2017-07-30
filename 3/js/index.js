@@ -477,3 +477,9 @@ var Start = function() {
 $(document).ready(function() {
     Start();
 })
+
+
+$('#restart').on('click', function() {
+    Start();
+    $('#header').show();
+})
