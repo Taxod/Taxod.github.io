@@ -271,13 +271,8 @@ var getAnswerColor = function(color) {
     r = color.r;
     g = color.g;
     b = color.b;
-<<<<<<< HEAD
     score = +$('#score').text();
     minus = 100 - score * 2;
-=======
-    score = $('#score').text();
-    minus = 100 - Number(score) * 2;
->>>>>>> 0ad42e55974c16ecff0da8fa37b10fc63a51d417
     //只更改一個色素
 
     if (minus < 5) {
@@ -287,33 +282,12 @@ var getAnswerColor = function(color) {
     switch (randomUseRGB) {
         case 0:
             r += (r < minus) ? minus : -minus;
-            // if (r < minus) {
-            //     r += minus;
-            // } else {
-            //     r -= minus;
-            // }
             break;
         case 1:
             g += (g < minus) ? minus : -minus;
-<<<<<<< HEAD
             break;
         case 2:
             b += (b < minus) ? minus : -minus;
-=======
-            // if (g < minus) {
-            //     g += minus;
-            // } else {
-            //     g -= minus;
-            // }
-            break;
-        case 2:
-            b += (b < minus) ? minus : -minus;
-            // if (b < minus) {
-            //     b += minus;
-            // } else {
-            //     b -= minus;
-            // }
->>>>>>> 0ad42e55974c16ecff0da8fa37b10fc63a51d417
             break;
     }
 
@@ -369,13 +343,10 @@ var printBox = function() {
     }
 }
 
-var printhintjpg = function() {
-    var hintid;
-    for (var j = 0; j < 3; j++) {
-        hintid = 'hint' + j;
-        $jpg = $('<img>').attr('src', './picture/hint1.jpg').attr('id', hintid).attr('style', 'width:50px ; height:50px');
-        $('.hint').append($jpg);
-
+var printHintImg = function() {
+    for (var i = 0; i < 3; i++) {
+        $img = $('<img>').attr('src', './picture/hint1.jpg').attr('data-hint', i).attr('class', 'hint');
+        $('div.hint').append($img);
     }
 }
 
@@ -446,17 +417,6 @@ $('#hint').on('click', function() {
     }
     var shadowColor = 'rgb(' + ComplementaryColor.r + ',' + ComplementaryColor.g + ',' + ComplementaryColor.b + ')'
     $('[data-answer=true]').css('box-shadow', 'inset 0 0 13px 4px ' + shadowColor);
-    // var answer_name = '#' + answer;
-    // $(answer_name).attr('style', 'width:70px; height:70px; font-size:20px;border-width:medium; border-style:dashed; border-width:1px; padding: 50px ;background-color:rgb' + rgb2 + ';');
-    // //console.log(answer_name + '!!!!!!');
-    // if (hint_used < 3) {
-    //     var hintid;
-    //     hintid = '#hint' + hint_used;
-    //     $(hintid).attr('src', './picture/hint2.jpg').attr('style', 'width:50px ; height:50px;');
-    //     hint_used += 1;
-    // } else {
-    //     alert('提示用完了  HAHA 找不到齁')
-    // }
 
 })
 
@@ -502,12 +462,14 @@ var showChart = function() {
 
 var Start = function() {
     $('#chart').hide();
-    $('#game').show();
+    $('#game').hide();
 
     $('#start').on('click', function() {
+        $('#header').hide();
+        $('#game').show();
         $('#score').text('0');
         printBox();
-        printhintjpg();
+        printHintImg();
     })
 }
 
