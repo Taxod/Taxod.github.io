@@ -1,4 +1,4 @@
-#hint {
+button#hint {
     background-color: rgb(50, 100, 150);
     position: absolute;
     left: 80px;
@@ -7,9 +7,38 @@
 #text {
     position: absolute;
     right: 35px;
-    font-size: 30px;
+    font-size: 28px;
 }
 
 #pos1 {
-    margin-top: 50px
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+div.hint {
+    position: absolute;
+    left: 180px;
+}
+
+img.hint {
+    width: 38px;
+    height: 38px;
+}
+
+section.game {
+    height: 100vh;
+}
+
+button.item {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+    border-width: 1px;
+    padding: 50px;
+    background-color: rgb(97, 100, 2);
+}
+
+#data {
+    margin-top: 50px;
+    text-align: center;
 }
