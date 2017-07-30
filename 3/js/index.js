@@ -271,8 +271,13 @@ var getAnswerColor = function(color) {
     r = color.r;
     g = color.g;
     b = color.b;
+<<<<<<< HEAD
+    score = +$('#score').text();
+    minus = 100 - score * 2;
+=======
     score = $('#score').text();
     minus = 100 - Number(score) * 2;
+>>>>>>> 0ad42e55974c16ecff0da8fa37b10fc63a51d417
     //只更改一個色素
 
     if (minus < 5) {
@@ -290,6 +295,11 @@ var getAnswerColor = function(color) {
             break;
         case 1:
             g += (g < minus) ? minus : -minus;
+<<<<<<< HEAD
+            break;
+        case 2:
+            b += (b < minus) ? minus : -minus;
+=======
             // if (g < minus) {
             //     g += minus;
             // } else {
@@ -303,6 +313,7 @@ var getAnswerColor = function(color) {
             // } else {
             //     b -= minus;
             // }
+>>>>>>> 0ad42e55974c16ecff0da8fa37b10fc63a51d417
             break;
     }
 
@@ -422,20 +433,32 @@ var score = 0;
 // }
 
 // var hint_used = 0;
-// $('#hint').on('click', function() {
-//     var answer_name = '#' + answer;
-//     $(answer_name).attr('style', 'width:70px; height:70px; font-size:20px;border-width:medium; border-style:dashed; border-width:1px; padding: 50px ;background-color:rgb' + rgb2 + ';');
-//     //console.log(answer_name + '!!!!!!');
-//     if (hint_used < 3) {
-//         var hintid;
-//         hintid = '#hint' + hint_used;
-//         $(hintid).attr('src', './picture/hint2.jpg').attr('style', 'width:50px ; height:50px;');
-//         hint_used += 1;
-//     } else {
-//         alert('提示用完了  HAHA 找不到齁')
-//     }
+$('#hint').on('click', function() {
 
-// })
+    var bgColor = $('[data-answer=true]').css('background-color');
+
+    var result = /rgb\((\d{1,3}),\s(\d{1,3}),\s(\d{1,3})\)/i.exec(bgColor);
+
+    var ComplementaryColor = {
+        r: 256 - +result[1],
+        g: 256 - +result[2],
+        b: 256 - +result[3],
+    }
+    var shadowColor = 'rgb(' + ComplementaryColor.r + ',' + ComplementaryColor.g + ',' + ComplementaryColor.b + ')'
+    $('[data-answer=true]').css('box-shadow', 'inset 0 0 13px 4px ' + shadowColor);
+    // var answer_name = '#' + answer;
+    // $(answer_name).attr('style', 'width:70px; height:70px; font-size:20px;border-width:medium; border-style:dashed; border-width:1px; padding: 50px ;background-color:rgb' + rgb2 + ';');
+    // //console.log(answer_name + '!!!!!!');
+    // if (hint_used < 3) {
+    //     var hintid;
+    //     hintid = '#hint' + hint_used;
+    //     $(hintid).attr('src', './picture/hint2.jpg').attr('style', 'width:50px ; height:50px;');
+    //     hint_used += 1;
+    // } else {
+    //     alert('提示用完了  HAHA 找不到齁')
+    // }
+
+})
 
 var showChart = function() {
     var ctx = document.getElementById("myChart").getContext('2d');
