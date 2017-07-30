@@ -334,9 +334,6 @@ var printhintjpg = function() {
 }
 
 
-var r1, g1, b1;
-var r2, g2, b2;
-var rgb1, rgb2;
 var score = 0;
 
 var choosechangecolor;
