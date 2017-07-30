@@ -4,7 +4,7 @@ button#hint {
     left: 80px;
 }
 
-#text {
+.score {
     position: absolute;
     right: 35px;
     font-size: 28px;
@@ -25,7 +25,11 @@ img.hint {
     height: 38px;
 }
 
-section.game {
+#game {
+    height: 100vh;
+}
+
+#chart {
     height: 100vh;
 }
 
