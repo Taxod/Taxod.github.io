@@ -271,13 +271,8 @@ var getAnswerColor = function(color) {
     r = color.r;
     g = color.g;
     b = color.b;
-<<<<<<< HEAD
-    score = +$('#score').text();
-    minus = 100 - score * 2;
-=======
     score = $('#score').text();
     minus = 100 - Number(score) * 2;
->>>>>>> 0ad42e55974c16ecff0da8fa37b10fc63a51d417
     //只更改一個色素
 
     if (minus < 5) {
@@ -295,11 +290,6 @@ var getAnswerColor = function(color) {
             break;
         case 1:
             g += (g < minus) ? minus : -minus;
-<<<<<<< HEAD
-            break;
-        case 2:
-            b += (b < minus) ? minus : -minus;
-=======
             // if (g < minus) {
             //     g += minus;
             // } else {
@@ -313,7 +303,6 @@ var getAnswerColor = function(color) {
             // } else {
             //     b -= minus;
             // }
->>>>>>> 0ad42e55974c16ecff0da8fa37b10fc63a51d417
             break;
     }
 
@@ -465,10 +454,10 @@ var showChart = function() {
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: ["Red", "Blue", /*"Yellow" ,*/ "Green" /*, "Purple", "Orange"*/ ],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [12, 19, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
