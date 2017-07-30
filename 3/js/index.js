@@ -271,7 +271,8 @@ var getAnswerColor = function(color) {
     r = color.r;
     g = color.g;
     b = color.b;
-    minus = 100 - score * 2;
+    score = $('#score').text();
+    minus = 100 - Number(score) * 2;
     //只更改一個色素
 
     if (minus < 5) {
@@ -281,11 +282,28 @@ var getAnswerColor = function(color) {
     switch (randomUseRGB) {
         case 0:
             r += (r < minus) ? minus : -minus;
+            // if (r < minus) {
+            //     r += minus;
+            // } else {
+            //     r -= minus;
+            // }
             break;
         case 1:
             g += (g < minus) ? minus : -minus;
+            // if (g < minus) {
+            //     g += minus;
+            // } else {
+            //     g -= minus;
+            // }
+            break;
         case 2:
             b += (b < minus) ? minus : -minus;
+            // if (b < minus) {
+            //     b += minus;
+            // } else {
+            //     b -= minus;
+            // }
+            break;
     }
 
     return {
