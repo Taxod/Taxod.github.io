@@ -275,6 +275,15 @@ var printbox = function() {
     }
 }
 
+var printhintjpg = function() {
+    var hintid;
+    for (var j = 0; j < 3; j++) {
+        hintid = 'hint' + j;
+        $jpg = $('<img>').attr('src', './picture/hint1.jpg').attr('id', hintid).attr('style', 'width:50px ; height:50px');
+        $('.col').append($jpg);
+
+    }
+}
 
 
 var r1, g1, b1;
@@ -287,31 +296,38 @@ var randomcolor = function() {
     b1 = Math.floor(Math.random() * 256);
     rgb1 = '(' + r1 + ',' + g1 + ',' + b1 + ')'
 }
-
+var choosechangecolor;
 var changeColor = function() {
+    choosechangecolor = Math.floor(Math.random() * 3); //0~2
+    //console.log(choosechangecolor + '+++++++++')
     r2 = r1;
     g2 = g1;
     b2 = b1;
     minus = 100 - score * 2;
-    //可以試只更改一個色素
-    if (minus < 10) {
-        minus = 10;
+    //只更改一個色素
+
+    if (minus < 5) {
+        minus = 5;
     }
-    if (r2 < minus) {
-        r2 += minus;
+    if (choosechangecolor == 0) {
+        if (r2 < minus) {
+            r2 += minus;
+        } else {
+            r2 -= minus;
+        }
+    } else if (choosechangecolor == 1) {
+        if (g2 < minus) {
+            g2 += minus;
+        } else {
+            g2 -= minus;
+        }
     } else {
-        r2 -= minus;
+        if (b2 < minus) {
+            b2 += minus;
+        } else {
+            b2 -= minus;
+        }
     }
-    /*if (g2 < minus) {
-        g2 += minus;
-    } else {
-        g2 -= minus;
-    }
-    if (b2 < minus) {
-        b2 += minus;
-    } else {
-        b2 -= minus;
-    }*/
     rgb2 = '(' + r2 + ',' + g2 + ',' + b2 + ')'
 }
 
@@ -321,6 +337,13 @@ var randomanswer = function() {
 }
 
 
+//按start後滑動至id = data
+$("#start").on("click", function(e) {
+    $('html, body').animate({
+        scrollTop: $("#pos1").offset().top // 只需修改此處
+    }, 750); // 750是滑動的時間，單位為毫秒
+    e.preventDefault();
+});
 
 
 //避免多次start
@@ -332,6 +355,7 @@ $('#start').on('click', function() {
         randomcolor();
         changeColor();
         printbox();
+        printhintjpg();
         void_restrat = 1;
     } else {
         alert('Already Start!!!')
@@ -339,7 +363,7 @@ $('#start').on('click', function() {
 
 })
 
-document.getElementById("text").innerHTML = 'score' + score;
+document.getElementById("text").innerHTML = 'score : ' + score;
 
 var check = function() {
     if (reply == answer) {
@@ -353,21 +377,35 @@ var check = function() {
         printbox();
         document.getElementById("text").innerHTML = 'score' + score;
     } else {
-        console.log(0);
+        //console.log(0);
         void_restrat = 0;
         for (var j = 0; j < data_row.length; j++) {
             $(data_row[j]).empty();
+        }
+        hint_used = 0;
+        var hintid;
+        for (var j = 0; j < 3; j++) {
+            hintid = '#hint' + j;
+            $(hintid).remove();
         }
 
     }
 }
 
+var hint_used = 0;
 $('#hint').on('click', function() {
-    //reply = answer;
     var answer_name = '#' + answer;
-    //$(answer_name).attr('value', '!!!!!!');
     $(answer_name).attr('style', 'width:70px; height:70px; font-size:20px;border-width:medium; border-style:dashed; padding: 50px ;background-color:rgb' + rgb2 + ';');
-    console.log(answer_name + '!!!!!!');
+    //console.log(answer_name + '!!!!!!');
+    if (hint_used < 3) {
+        var hintid;
+        hintid = '#hint' + hint_used;
+        $(hintid).attr('src', './picture/hint2.jpg').attr('style', 'width:50px ; height:50px');
+        hint_used += 1;
+    } else {
+        alert('提示用完了  HAHA 找不到齁')
+    }
+
 })
 
 /*
