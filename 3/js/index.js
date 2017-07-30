@@ -343,12 +343,12 @@ var printBox = function() {
     }
 }
 
-var printHintImg = function() {
-    for (var i = 0; i < 3; i++) {
-        $img = $('<img>').attr('src', './picture/hint1.jpg').attr('data-hint', i).attr('class', 'hint');
-        $('div.hint').append($img);
-    }
-}
+// var printHintImg = function() {
+//     for (var i = 0; i < 3; i++) {
+//         $img = $('<img>').attr('src', './picture/hint1.jpg').attr('data-hint', i).attr('class', 'hint');
+//         $('div.hint').append($img);
+//     }
+// }
 
 
 // var r1, g1, b1;
@@ -469,7 +469,7 @@ var Start = function() {
         $('#game').show();
         $('#score').text('0');
         printBox();
-        printHintImg();
+        //        printHintImg();
     })
 }
 
