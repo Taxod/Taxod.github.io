@@ -252,25 +252,73 @@ $('#data').on('click', '#40', function() {
     reply = 40;
     check();
 });
-//num按鈕編號
-var printbox = function() {
-    var num = 0;
-    //行
-    for (var j = 0; j < 5; j++) {
-        //個數
-        for (var index = 0; index < 8; index++) {
-            var $button;
-            if (num == answer) {
-                $button = $('<button>').attr('id', data[num]).attr('style', 'width:70px; height:70px; font-size:20px;border-width:1px; padding: 50px ;background-color:rgb' + rgb2 + ';');
-                $col = $(data_row[j]).append($button);
-                $('#data').append($col);
-            } else {
-                $button = $('<button>').attr('id', data[num]).attr('style', 'width:70px; height:70px; font-size:20px;border-width:1px; padding: 50px ;background-color:rgb' + rgb1 + ';');
-                $col = $(data_row[j]).append($button);
-                $('#data').append($col);
-            }
-            num++;
 
+var getRandomColor = function() {
+    r = Math.floor(Math.random() * 256); //0~255
+    g = Math.floor(Math.random() * 256);
+    b = Math.floor(Math.random() * 256);
+    return {
+        r: r,
+        g: g,
+        b: b,
+        rgb: 'rgb(' + r + ', ' + g + ', ' + b + ')'
+    }
+}
+
+var getAnswerColor = function(color) {
+    randomUseRGB = Math.floor(Math.random() * 3); //0~2
+    //console.log(choosechangecolor + '+++++++++')
+    r = color.r;
+    g = color.g;
+    b = color.b;
+    minus = 100 - score * 2;
+    //只更改一個色素
+
+    if (minus < 5) {
+        minus = 5;
+    }
+
+    switch (randomUseRGB) {
+        case 0:
+            r += (r < minus) ? minus : -minus;
+            break;
+        case 1:
+            g += (g < minus) ? minus : -minus;
+        case 2:
+            b += (b < minus) ? minus : -minus;
+    }
+
+    return {
+        r: r,
+        g: g,
+        b: b,
+        rgb: 'rgb(' + r + ', ' + g + ', ' + b + ')'
+    }
+
+}
+
+//num按鈕編號
+var printBox = function() {
+
+    var answer = Math.floor(Math.random() * 40);
+    var color = getRandomColor();
+    var ans_color = getAnswerColor(color);
+    //行
+    for (var i = 0; i < 5; i++) {
+        var $row = $('<div>').attr('data-row', i)
+            //個數
+        for (var j = 0; j < 8; j++) {
+            var index = i * 8 + j;
+            var $button = $('<button>').attr('id', index).attr('class', 'item')
+
+
+            if (index == answer) {
+                $button.attr('data-answer', true).css('background-color', ans_color.rgb);
+            } else {
+                $button.attr('data-answer', false).css('background-color', color.rgb)
+            }
+            var $col = $row.append($button)
+            $('#data').append($col)
         }
     }
 }
@@ -290,46 +338,9 @@ var r1, g1, b1;
 var r2, g2, b2;
 var rgb1, rgb2;
 var score = 0;
-var randomcolor = function() {
-    r1 = Math.floor(Math.random() * 256); //0~255
-    g1 = Math.floor(Math.random() * 256);
-    b1 = Math.floor(Math.random() * 256);
-    rgb1 = '(' + r1 + ',' + g1 + ',' + b1 + ')'
-}
-var choosechangecolor;
-var changeColor = function() {
-    choosechangecolor = Math.floor(Math.random() * 3); //0~2
-    //console.log(choosechangecolor + '+++++++++')
-    r2 = r1;
-    g2 = g1;
-    b2 = b1;
-    minus = 100 - score * 2;
-    //只更改一個色素
 
-    if (minus < 5) {
-        minus = 5;
-    }
-    if (choosechangecolor == 0) {
-        if (r2 < minus) {
-            r2 += minus;
-        } else {
-            r2 -= minus;
-        }
-    } else if (choosechangecolor == 1) {
-        if (g2 < minus) {
-            g2 += minus;
-        } else {
-            g2 -= minus;
-        }
-    } else {
-        if (b2 < minus) {
-            b2 += minus;
-        } else {
-            b2 -= minus;
-        }
-    }
-    rgb2 = '(' + r2 + ',' + g2 + ',' + b2 + ')'
-}
+var choosechangecolor;
+
 
 var answer;
 var randomanswer = function() {
@@ -349,18 +360,18 @@ var randomanswer = function() {
 //避免多次start
 var void_restrat = 0;
 $('#start').on('click', function() {
-    if (void_restrat == 0) {
-        score = 0;
-        document.getElementById("text").innerHTML = 'score : ' + score;
-        randomanswer();
-        randomcolor();
-        changeColor();
-        printbox();
-        printhintjpg();
-        void_restrat = 1;
-    } else {
-        alert('Already Start!!!')
-    }
+    // if (void_restrat == 0) {
+    //     score = 0;
+    //     document.getElementById("text").innerHTML = 'score : ' + score;
+    //     randomanswer();
+    // randomcolor();
+    // changeColor();
+    printBox();
+    //     printhintjpg();
+    //     void_restrat = 1;
+    // } else {
+    //     alert('Already Start!!!')
+    // }
 
 })
 
