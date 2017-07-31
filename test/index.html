@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crazy Eyes</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="./css/cover.css">
+
+    <!-- 引入我們自己寫的 CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+</head>
+
+<body>
+
+    <section id="header">
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="inner cover">
+                        <h1 class="cover-heading">Crazy Eyes</h1>
+                        <!-- <p class="lead">* Without support cellphone </p> -->
+                        <p class="lead">On each board, one of the squares is a different shade of the same colour and the aim is to find this odd square by clicking it with the mouse. </p>
+                        <p class="lead">Players get a point for every correct square identified.</p>
+
+                        <!-- you’re presented with a grid of colored boxes. All the boxes are the exact same color except one — find the irregular box and click it to move onto the next grid. -->
+                        <!-- the results screen will tell you what -->
+
+                        <p class="lead">
+                            <button id="start" class="btn btn-primary">
+                                start
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="game">
+        <div class="container">
+            <div class="row" id="tools-box">
+                <div class="col">
+                    <div>
+                        <button id="hint" type="button" class="btn btn-primary btn-lg">hint</button>
+                        <div class="hint">
+                            <!-- <img class="hint" src="./picture/hint1.jpg">
+                            <img class="hint" src="./picture/hint1.jpg">
+                            <img class="hint" src="./picture/hint1.jpg"> -->
+                        </div>
+                        <div align="left">
+                            <p class="score">Score: <span id="score">0</span></p>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="col" align="left"> -->
+                <!--<button id="start" type="button" class="btn btn-primary" style="background-color:rgb(20,20,150)">start</button>-->
+                <!-- <span id="text"></span> -->
+                <!-- </div> -->
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="data">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="chart">
+        <canvas id="myChart" width="400" height="180"></canvas>
+        <div>
+            <button id="restart" type="button" class="btn btn-primary btn-lg">restart</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="mastfoot">
+            <div class="inner">
+                <p> &copy; 2017 Crazy Eyes by <a href="https://taxod.github.io/">Taxod</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="./js/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js"></script>
+    <script src="./js/scolls.js"></script>
+
+    <!-- 引入我們自己寫的 JavaScript -->
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>
