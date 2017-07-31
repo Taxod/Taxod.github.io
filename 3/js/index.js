@@ -436,45 +436,56 @@ $('#hint').on('click', function() {
 })
 
 var showChart = function() {
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ["Red", "Green", "Blue" /*"Yellow" ,*/ /*, "Purple", "Orange"*/ ],
-            datasets: [{
-                label: '# of Votes',
-                data: [rnum, gnum, bnum],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
-                    // 'rgba(255, 206, 86, 0.2)',
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Red", "Green", "Blue", "score" /*"Yellow" ,*/ /*, "Purple", "Orange"*/ ],
+                datasets: [{
+                    label: 'colors',
+                    // labelColor: 'rgb(255, 0, 0)',
+                    data: [rnum, gnum, bnum, ($('#score').text())],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(220, 220, 220, 0.2)'
+                        // 'rgba(255, 206, 86, 0.2)',
 
-                    // 'rgba(153, 102, 255, 0.2)',
-                    // 'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(75, 192, 192, 1)',
-                    // 'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)'
-                    // 'rgba(153, 102, 255, 1)',
-                    // 'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
+                        // 'rgba(153, 102, 255, 0.2)',
+                        // 'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(75, 192, 192, 1)',
+                        // 'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(220, 220, 220, 1)'
+                        // 'rgba(153, 102, 255, 1)',
+                        // 'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+
                 }]
+            },
+            options: {
+
+                scales: {
+
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1,
+                            // scaleShowLabels: false
+                        }
+                    }]
+                }
             }
-        }
-    });
-}
+        });
+    }
+    // Bar.defaults = {
+    //     
+    // }
 
 var rnum = 0;
 var gnum = 0;
