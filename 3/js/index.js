@@ -403,20 +403,24 @@ var score = 0;
 //     }
 // }
 
-// var hint_used = 0;
+var hint_used = 0;
 $('#hint').on('click', function() {
+    if (hint_used < 3) {
+        var bgColor = $('[data-answer=true]').css('background-color');
 
-    var bgColor = $('[data-answer=true]').css('background-color');
+        var result = /rgb\((\d{1,3}),\s(\d{1,3}),\s(\d{1,3})\)/i.exec(bgColor);
 
-    var result = /rgb\((\d{1,3}),\s(\d{1,3}),\s(\d{1,3})\)/i.exec(bgColor);
-
-    var ComplementaryColor = {
-        r: 256 - +result[1],
-        g: 256 - +result[2],
-        b: 256 - +result[3],
+        var ComplementaryColor = {
+            r: 256 - +result[1],
+            g: 256 - +result[2],
+            b: 256 - +result[3],
+        }
+        var shadowColor = 'rgb(' + ComplementaryColor.r + ',' + ComplementaryColor.g + ',' + ComplementaryColor.b + ')'
+        $('[data-answer=true]').css('box-shadow', 'inset 0 0 13px 4px ' + shadowColor);
+        hint_used += 1;
+    } else {
+        $('#hint').attr('disabled', 'disabled')
     }
-    var shadowColor = 'rgb(' + ComplementaryColor.r + ',' + ComplementaryColor.g + ',' + ComplementaryColor.b + ')'
-    $('[data-answer=true]').css('box-shadow', 'inset 0 0 13px 4px ' + shadowColor);
 
 })
 
@@ -469,6 +473,8 @@ var Start = function() {
         $('#game').show();
         $('#score').text('0');
         printBox();
+        $('#hint').removeAttr("disabled");
+        hint_used = 0;
         //        printHintImg();
     })
 }
