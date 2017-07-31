@@ -330,6 +330,16 @@ var printBox = function() {
                     var score = +$('#score').text();
                     printBox();
                     $('#score').text(score + 1);
+
+                    console.log(randomUseRGB);
+                    if (randomUseRGB == 0) {
+                        rnum += 1;
+                    } else if (randomUseRGB == 1) {
+                        gnum += 1;
+                    } else {
+                        bnum += 1;
+                    }
+
                 } else {
                     $('#game').hide();
                     $('#chart').show();
@@ -418,10 +428,11 @@ $('#hint').on('click', function() {
         var shadowColor = 'rgb(' + ComplementaryColor.r + ',' + ComplementaryColor.g + ',' + ComplementaryColor.b + ')'
         $('[data-answer=true]').css('box-shadow', 'inset 0 0 13px 4px ' + shadowColor);
         hint_used += 1;
-    } else {
-        $('#hint').attr('disabled', 'disabled')
     }
+    if (hint_used == 3) {
+        $('#hint').attr('disabled', 'disabled')
 
+    }
 })
 
 var showChart = function() {
@@ -429,23 +440,24 @@ var showChart = function() {
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Red", "Blue", /*"Yellow" ,*/ "Green" /*, "Purple", "Orange"*/ ],
+            labels: ["Red", "Green", "Blue" /*"Yellow" ,*/ /*, "Purple", "Orange"*/ ],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3],
+                data: [rnum, gnum, bnum],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    // 'rgba(255, 206, 86, 0.2)',
                     'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'
+                    // 'rgba(255, 206, 86, 0.2)',
+
                     // 'rgba(153, 102, 255, 0.2)',
                     // 'rgba(255, 159, 64, 0.2)'
                 ],
                 borderColor: [
                     'rgba(255,99,132,1)',
-                    // 'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
                     'rgba(75, 192, 192, 1)',
+                    // 'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)'
                     // 'rgba(153, 102, 255, 1)',
                     // 'rgba(255, 159, 64, 1)'
                 ],
@@ -464,6 +476,10 @@ var showChart = function() {
     });
 }
 
+var rnum = 0;
+var gnum = 0;
+var bnum = 0;
+
 var Start = function() {
     $('#chart').hide();
     $('#game').hide();
@@ -475,6 +491,9 @@ var Start = function() {
         printBox();
         $('#hint').removeAttr("disabled");
         hint_used = 0;
+        rnum = 0;
+        gnum = 0;
+        bnum = 0;
         //        printHintImg();
     })
 }
