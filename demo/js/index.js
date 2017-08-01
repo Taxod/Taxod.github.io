@@ -332,13 +332,14 @@ var printBox = function() {
                     $('#score').text(score + 1);
 
                     console.log(randomUseRGB);
-                    if (randomUseRGB == 0) {
+                    if (randomUseRGB == 0 && flag_hinted == 0) {
                         rnum += 1;
-                    } else if (randomUseRGB == 1) {
+                    } else if (randomUseRGB == 1 && flag_hinted == 0) {
                         gnum += 1;
-                    } else {
+                    } else if (randomUseRGB == 2 && flag_hinted == 0) {
                         bnum += 1;
                     }
+                    flag_hinted = 0;
 
                 } else {
                     $('#game').hide();
@@ -414,6 +415,7 @@ var score = 0;
 // }
 
 var hint_used = 0;
+var flag_hinted = 0;
 $('#hint').on('click', function() {
     if (hint_used < 3) {
         var bgColor = $('[data-answer=true]').css('background-color');
@@ -428,6 +430,7 @@ $('#hint').on('click', function() {
         var shadowColor = 'rgb(' + ComplementaryColor.r + ',' + ComplementaryColor.g + ',' + ComplementaryColor.b + ')'
         $('[data-answer=true]').css('box-shadow', 'inset 0 0 13px 4px ' + shadowColor);
         hint_used += 1;
+        flag_hinted = 1;
     }
     if (hint_used == 3) {
         $('#hint').attr('disabled', 'disabled')
@@ -505,6 +508,7 @@ var Start = function() {
         rnum = 0;
         gnum = 0;
         bnum = 0;
+        flag_hinted = 0;
         //        printHintImg();
     })
 }
