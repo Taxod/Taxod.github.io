@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>摩斯密碼轉換</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <!-- 引入我們自己寫的 CSS -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1>摩斯密碼轉換 Morse Code Translator</h1>
+        </div>
+
+        <div class="form-group row">
+            <button type="button" class="btn btn-outline-primary " id="ruin" style="width:15%; ">清除</button>
+            <!--<label for="example-number-input" class="col-2 col-form-label"></label>-->
+            <div class="col-10">
+                <input class="form-control" value="" id="number">
+            </div>
+        </div>
+
+        <div class="form-group row ">
+            <button type="button " class="btn btn-primary btn-block" id="Calculation" style="width:15%;">=</button>
+            <!--<label for="example-number-input " class="col-2 col-form-label ">=</label>-->
+            <div class="col-10 ">
+                <input class="form-control " type="number " id="answer">
+            </div>
+        </div>
+
+        <div id="font_" class="alert alert-info form-group" row role="alert">
+
+            <p id="p" style="font-family:Arial,Microsoft JhengHei;">
+                Knock!Knock!
+            </p>
+            <p id="p" style="font-family:Arial,Microsoft JhengHei;">
+                Who's there?
+            </p>
+            <p id="p" style="font-family:Arial,Microsoft JhengHei;">
+                Alfie.
+            </p>
+            <p id="p" style="font-family:Arial,Microsoft JhengHei;">
+                Alfie who?
+            </p>
+
+            <p id="p" style="font-family:Arial,Microsoft JhengHei;">
+                .- .-.. ..-. .. . - . .-. .-. .. -... .-.. . .. ..-. -.-- --- ..- .-.. . .- ...- . .-.-.-
+            </p>
+
+        </div>
+
+        <div align="middle">
+            <caption>Morsecode table</caption>
+            <table class="table table-hover table-bordered" style="width:15%;">
+
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Morsecode</th>
+                        <th>Character</th>
+                        <th>Morsecode</th>
+                        <th>Character</th>
+                        <th>Morsecode</th>
+                        <th>Character</th>
+                        <th>Morsecode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A</td>
+                        <td>.-</td>
+                        <td>L</td>
+                        <td>.-..</td>
+                        <td>W</td>
+                        <td>.--</td>
+                        <td>7</td>
+                        <td>--...</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>-...</td>
+                        <td>M</td>
+                        <td>--</td>
+                        <td>X</td>
+                        <td>-..-</td>
+                        <td>8</td>
+                        <td>---..</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>-.-.</td>
+                        <td>N</td>
+                        <td>-.</td>
+                        <td>Y</td>
+                        <td>-.--</td>
+                        <td>9</td>
+                        <td>----.</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>-..</td>
+                        <td>O</td>
+                        <td>---</td>
+                        <td>Z</td>
+                        <td>--..</td>
+                        <td>,</td>
+                        <td>--..--</td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td>.</td>
+                        <td>P</td>
+                        <td>.--.</td>
+                        <td>0</td>
+                        <td>-----</td>
+                        <td>.</td>
+                        <td>.-.-.-</td>
+                    </tr>
+                    <tr>
+                        <td>F</td>
+                        <td>..-.</td>
+                        <td>Q</td>
+                        <td>--.-</td>
+                        <td>1</td>
+                        <td>.----</td>
+                        <td>?</td>
+                        <td>..--..</td>
+                    </tr>
+                    <tr>
+                        <td>G</td>
+                        <td>--.</td>
+                        <td>R</td>
+                        <td>.-.</td>
+                        <td>2</td>
+                        <td>..---</td>
+                        <td>/</td>
+                        <td>-..-.</td>
+                    </tr>
+                    <tr>
+                        <td>H</td>
+                        <td>....</td>
+                        <td>S</td>
+                        <td>...</td>
+                        <td>3</td>
+                        <td>...--</td>
+                        <td>-</td>
+                        <td>-....-</td>
+                    </tr>
+                    <tr>
+                        <td>I</td>
+                        <td>..</td>
+                        <td>T</td>
+                        <td>-</td>
+                        <td>4</td>
+                        <td>....-</td>
+                        <td>(</td>
+                        <td>-.--.</td>
+                    </tr>
+                    <tr>
+                        <td>J</td>
+                        <td>.---</td>
+                        <td>U</td>
+                        <td>..-</td>
+                        <td>5</td>
+                        <td>.....</td>
+                        <td>)</td>
+                        <td>-.--.</td>
+                    </tr>
+                    <tr>
+                        <td>K</td>
+                        <td>-.-</td>
+                        <td>V</td>
+                        <td>...-</td>
+                        <td>6</td>
+                        <td>-....</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="mastfoot" align="middle">
+            <div class="inner">
+                <p> &copy; 2019 by Wen.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js " integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js " integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb " crossorigin="anonymous "></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js " integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn " crossorigin="anonymous "></script>
+
+    <!-- 引入我們自己寫的 JavaScript -->
+    <script src="./js/index.js "></script>
+
+</body>
+
+</html>
