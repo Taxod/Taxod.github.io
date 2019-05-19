@@ -75,7 +75,6 @@ function decode(params) {
             string += " ";
         } else {
             string += getKeyByValue(MORSE_CODE_DICT, temp[i]);
-            string += " ";
         }
 
     }
