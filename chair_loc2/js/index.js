@@ -89,7 +89,7 @@ function getdata() {
                     $('#answer').val("no define");
                 } else {
                     var str = ''
-                    str = type1 + ':' + doc.data()[type1]
+                    str = name1 + "\n" + type1 + ':' + doc.data()[type1]
                     $('#answer').val(str);
                 }
                 console.log(doc.data()[type1])
@@ -108,7 +108,7 @@ function getdataall() {
     docRef.get().then(function(doc) {
             if (doc.exists) {
                 console.log(doc.data());
-                var string = ''
+                var string = name1 + "\n"
                 for (index in doc.data()) {
                     string = string + getKeyByValue(doc.data(), doc.data()[index]) + ":" + doc.data()[index] + " \n"
                     console.log(doc.data()[index])
