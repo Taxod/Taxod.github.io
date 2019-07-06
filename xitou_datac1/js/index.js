@@ -13,9 +13,9 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
-var name1 = ''
-var number1 = ''
-var type1 = ''
+var name1 = '.'
+var number1 = '.'
+var type1 = '.'
 var str = ''
     // $("#treasure").hide();
     // $("#split").hide();
@@ -27,15 +27,21 @@ var str = ''
     // $("#大小").hide();
     // $("#形狀").hide();
     // $("#QRcode").hide();
+    // $("#檢查頻率").hide();
+    // $("#位置").hide();
+    // $("#分類").hide();
+
 
 
 function definename(n) {
-    str = ''
-    $('#answer').val(str);
-    name1 = n
-    str = name1 + " "
-    $('#answer').val(str);
-    console.log(name1)
+    if (n != name1) {
+        str = ''
+        $('#answer').val(str);
+        name1 = n
+        str = name1 + " "
+        $('#answer').val(str);
+        console.log(name1)
+    }
     if (name1 == 'chair') {
         $("#treasure").show();
         $("#split").show();
@@ -51,6 +57,15 @@ function definename(n) {
         $("#two").show();
         $("#three").show();
         $("#four").show();
+        $("#five").hide();
+        $("#six").hide();
+        $("#seven").hide();
+        $("#eight").hide();
+        $("#nine").hide();
+        $("#檢查頻率").show();
+        $("#位置").hide();
+        $("#分類").hide();
+
     } else if (name1 == '男廁') {
         $("#treasure").hide();
         $("#split").hide();
@@ -63,9 +78,63 @@ function definename(n) {
         $("#形狀").hide();
         $("#QRcode").hide();
         $("#one").show();
-        $("#two").hide();
+        $("#two").show();
         $("#three").hide();
         $("#four").hide();
+        $("#five").hide();
+        $("#six").hide();
+        $("#seven").hide();
+        $("#eight").hide();
+        $("#nine").hide();
+        $("#檢查頻率").show();
+        $("#位置").hide();
+        $("#分類").hide();
+    } else if (name1 == '路牌') {
+        $("#treasure").hide();
+        $("#split").hide();
+        $("#小便斗").hide();
+        $("#蹲式馬桶").hide();
+        $("#坐式馬桶").hide();
+        $("#水龍頭").hide();
+        $("#主題").hide();
+        $("#大小").show();
+        $("#形狀").show();
+        $("#QRcode").hide();
+        $("#one").show();
+        $("#two").show();
+        $("#three").hide();
+        $("#four").hide();
+        $("#five").hide();
+        $("#six").show();
+        $("#seven").show();
+        $("#eight").hide();
+        $("#nine").show();
+        $("#檢查頻率").show();
+        $("#位置").show();
+        $("#分類").hide();
+    } else if (name1 == '垃圾桶') {
+        $("#treasure").hide();
+        $("#split").hide();
+        $("#小便斗").hide();
+        $("#蹲式馬桶").hide();
+        $("#坐式馬桶").hide();
+        $("#水龍頭").hide();
+        $("#主題").hide();
+        $("#大小").hide();
+        $("#形狀").hide();
+        $("#QRcode").hide();
+        $("#one").show();
+        $("#two").show();
+        $("#three").show();
+        $("#four").show();
+        $("#five").show();
+        $("#six").show();
+        $("#seven").hide();
+        $("#eight").hide();
+        $("#nine").hide();
+        $("#檢查頻率").show();
+        $("#位置").show();
+        $("#分類").show();
     } else {
         $("#treasure").hide();
         $("#split").hide();
@@ -78,17 +147,28 @@ function definename(n) {
         $("#形狀").show();
         $("#QRcode").show();
         $("#one").show();
-        $("#two").hide();
-        $("#three").hide();
+        $("#two").show();
+        $("#three").show();
         $("#four").hide();
+        $("#five").hide();
+        $("#six").hide();
+        $("#seven").hide();
+        $("#eight").hide();
+        $("#nine").hide();
+        $("#檢查頻率").show();
+        $("#位置").hide();
+        $("#分類").hide();
     }
 }
 
 function definenumber(num) {
-    number1 = num
-    str = str + number1 + "\n"
-    $('#answer').val(str);
-    console.log(number1)
+    if (num != number1) {
+        number1 = num
+        str = str + number1 + "\n"
+        $('#answer').val(str);
+        console.log(number1)
+    }
+
 }
 
 
